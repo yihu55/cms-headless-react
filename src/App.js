@@ -1,6 +1,5 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-
 import SinglePost from './components/SinglePost';
 import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
