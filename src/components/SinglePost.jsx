@@ -9,15 +9,24 @@ export default function SinglePost() {
     const [post, setPost] = useState(null);
     const [imageData, setImageData] = useState({});
 
-
-useEffect(()=>
-  ()=>axios.get(`http://localhost/wordpress-examination/wp-json/wp/v2/posts/${params.id}`)
+const fetchPostAndImage=()=>{
+  axios.get(`http://localhost/wordpress-examination/wp-json/wp/v2/posts/${params.id}`)
   .then(res=>{
     setPost(res.data)
     return res.data
   }).then(post=>axios.get( `http://localhost/wordpress-examination/wp-json/wp/v2/media/${post.featured_media}`))
-  .then(res=>setImageData(res.data))
-,[params.id])
+  .then(res=>{
+      setImageData(res.data)
+    })
+  .catch(err=>{
+    console.log(err)
+  })
+}
+
+useEffect(()=>{
+  fetchPostAndImage()
+}
+,[])
 console.log(imageData)
     return (
 
