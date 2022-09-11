@@ -17,7 +17,7 @@ useEffect(()=>
     return res.data
   }).then(post=>axios.get( `http://localhost/wordpress-examination/wp-json/wp/v2/media/${post.featured_media}`))
   .then(res=>setImageData(res.data))
-,[])
+,[params.id])
 console.log(imageData)
     return (
 
