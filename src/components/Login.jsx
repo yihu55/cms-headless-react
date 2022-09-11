@@ -8,7 +8,7 @@ export default function Login() {
 
   const login=async(e)=>{
     e.preventDefault()
-    const url='http://localhost/headless-cms/wp-json/jwt-auth/v1/token'
+    const url='/wp-json/jwt-auth/v1/token'
     const payload={username,password}
     await fetch(url,{
         method:'POST',
@@ -20,7 +20,7 @@ export default function Login() {
     .then(res=>res.json())
     .then(data=>{
         const token=data.token 
-        localStorage.setItem('headless',token)
+        localStorage.setItem('wordpress-examination',token)
 
         if(token===undefined){
             e.target.reset()

@@ -5,13 +5,15 @@ import {Button} from 'react-bootstrap'
 export default function AddPost({getPosts}) {
   const [content, setContent] = useState('');
   const [title, setTitle] = useState('');
+  
 
   function submitPost(e) {
     e.preventDefault();
     console.log('form submitted');
-    const url = 'http://localhost/headless-cms/wp-json/wp/v2/posts';
-    const token=localStorage.getItem('headless')
+    const url = '/wp-json/wp/v2/posts';
+    const token=localStorage.getItem('wordpress-examination')
     const payload = { title, content,status:'publish'};
+  
     fetch(url, {
       method: 'POST',
       headers: {
@@ -22,7 +24,6 @@ export default function AddPost({getPosts}) {
     })
     .then((res) => res.json())
     .then(data=>getPosts())
-    
     
   }
 
@@ -39,8 +40,9 @@ export default function AddPost({getPosts}) {
         <Form.Control as="textarea" rows={3}  type='text'
         name={content}
         onChange={(e) => setContent(e.target.value)}/>
-        <Button type='submit' variant='primary' >add post</Button>
+         <Button type='submit' variant='primary' >add post</Button>   
       </Form.Group>
+    
     </Form>
  
     </>
