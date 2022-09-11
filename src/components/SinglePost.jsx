@@ -8,56 +8,14 @@ export default function SinglePost() {
      const params=useParams()
     const [post, setPost] = useState(null);
     const [imageData, setImageData] = useState({});
-  //   console.log(params.id)
-    // const fetchPost=async()=>{
-    //     const url=`/wp-json/wp/v2/posts/${params.id}`
-    //     const response=await fetch(url)
-    //     const data=await response.json()
-    //     console.log(data)
-    //     setPost(data)
-    //}
-   
-  //   console.log('post',post)
-  //   const getImageUrl = async () => {
-  //     const media=await post.featured_media
-  //     const response = await fetch(
-  //       `/wp-json/wp/v2/media/${media}`
-  //     );
-  //     const data = await response.json();
-  //     console.log(data,'imageUrl');
-  //     setImageUrl(data);
-  //   };
-  //   useEffect(()=>{
-  //     const a= fetchPost()
-  //     getImageUrl()
-  // },[])
-   
 
-    // useEffect(() => {
-    //  fetchPost()
-    //   getImageUrl(post.featured_media);
-    // }, []);
-    // useEffect(()=>{
-    //   setPost(axios.get(`/wp-json/wp/v2/posts/${params.id}`).then(res=>res.json()))
-    //   const {featured_media}=post
-    //   setImageUrl(axios.get( `/wp-json/wp/v2/media/${featured_media}`).then(res=>res.json())) 
-     
-   // const firstRequest=async()=>await axios.get(`/wp-json/wp/v2/posts/${params.id}`).then(res=>setPost(res.data))
-    //console.log(firstRequest)ä
-    //const secondRequest=async()=>await axios.get(`/wp-json/wp/v2/media/${firstRequest.featured_media}`).then(res=>{setImageUrl(res.data)})
-   //console.log(secondRequest())
-//     useEffect(()=>{
- 
-    
-// firstRequest()
-// secondRequest()
-//     },[])
+
 useEffect(()=>
-  ()=>axios.get(`/wp-json/wp/v2/posts/${params.id}`)
+  ()=>axios.get(`http://localhost/wordpress-examination/wp-json/wp/v2/posts/${params.id}`)
   .then(res=>{
     setPost(res.data)
     return res.data
-  }).then(post=>axios.get( `/wp-json/wp/v2/media/${post.featured_media}`))
+  }).then(post=>axios.get( `http://localhost/wordpress-examination/wp-json/wp/v2/media/${post.featured_media}`))
   .then(res=>setImageData(res.data))
 ,[])
 console.log(imageData)

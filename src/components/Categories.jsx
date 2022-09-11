@@ -14,13 +14,13 @@ export default function Categories() {
   const [category,setCategory]=useState('')
 
   const getCategories=async()=>{
-    const response=await fetch('/wp-json/wp/v2/categories')
+    const response=await fetch('http://localhost/wordpress-examination/wp-json/wp/v2/categories')
     const data=await response.json()
     console.log(data)
     setCategories(data)
   }
   const fetchPostsByCategory=async(category)=>{
-    const response=await fetch(`/wp-json/wp/v2/posts?categories=${category.id}`)
+    const response=await fetch(`http://localhost/wordpress-examination/wp-json/wp/v2/posts?categories=${category.id}`)
     const data=await response.json()
 
     setPostsByCategory(data)
@@ -29,7 +29,7 @@ export default function Categories() {
   function addCategory(e) {
     e.preventDefault();
     console.log('form submitted');
-    const url='/wp-json/wp/v2/categories';
+    const url='http://localhost/wordpress-examination/wp-json/wp/v2/categories';
     const token=localStorage.getItem('wordpress-examination')
     const categoryPayload={name:category}
 

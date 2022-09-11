@@ -8,7 +8,7 @@ export default function Login() {
 
   const login=async(e)=>{
     e.preventDefault()
-    const url='/wp-json/jwt-auth/v1/token'
+    const url='http://localhost/wordpress-examination/wp-json/jwt-auth/v1/token'
     const payload={username,password}
     await fetch(url,{
         method:'POST',
