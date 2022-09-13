@@ -10,11 +10,11 @@ export default function SinglePost() {
     const [imageData, setImageData] = useState({});
 
 const fetchPostAndImage=()=>{
-  axios.get(`http://localhost/wordpress-examination/wp-json/wp/v2/posts/${params.id}`)
+  axios.get(`${process.env.REACT_APP_API_URL}/wp-json/wp/v2/posts/${params.id}`)
   .then(res=>{
     setPost(res.data)
     return res.data
-  }).then(post=>axios.get( `http://localhost/wordpress-examination/wp-json/wp/v2/media/${post.featured_media}`))
+  }).then(post=>axios.get( `${process.env.REACT_APP_API_URL}/wp-json/wp/v2/media/${post.featured_media}`))
   .then(res=>{
       setImageData(res.data)
     })
