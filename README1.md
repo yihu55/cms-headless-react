@@ -76,7 +76,7 @@ Unable to negotiate with 203.0.113.123 port 2222: no matching host key type foun
 ## Authenticity & Fingerprint Prompts
 ### Your first connection to any remote server over an SSH connection (like Git or SFTP) will prompt you to confirm the host identity:
 ### You can safely type yes and press enter to add the server's SSH key fingerprint to your computer's known_hosts file.
-![Screenshot](screenshots/ssh.jpg)
+
 
 
 # implement jwt
