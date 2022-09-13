@@ -14,14 +14,15 @@ export default function Home() {
     getCategories();
   }, []);
   const getPosts = () => {
-    const url = 'http://localhost/wordpress-examination/wp-json/wp/v2/posts';
+    const url = `${process.env.REACT_APP_API_URL}/wp-json/wp/v2/posts`;
+    console.log(url);
     fetch(url)
       .then((res) => res.json())
       .then((data) => setPosts(data));
   };
   const getCategories = async () => {
     const response = await fetch(
-      'http://localhost/wordpress-examination/wp-json/wp/v2/categories'
+      `${process.env.REACT_APP_API_URL}/wp-json/wp/v2/categories`
     );
     const data = await response.json();
     setCategories(data);

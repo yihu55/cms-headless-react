@@ -7,7 +7,7 @@ export default function Postlist({posts}) {
    {posts&&
         posts.map((post) => {
           return (<>
-              <Post post={post}/>
+              <Post key={post.id} post={post}/>
              
               </>
           );

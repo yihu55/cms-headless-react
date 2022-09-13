@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 export default function Post({post}) {
-  console.log(post)
+ 
   return (
         
               <Card className="text-center" key={post.id}>

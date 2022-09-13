@@ -10,7 +10,7 @@ export default function AddPost({getPosts}) {
   function submitPost(e) {
     e.preventDefault();
     console.log('form submitted');
-    const url = 'http://localhost/wordpress-examination/wp-json/wp/v2/posts';
+    const url = `${process.env.REACT_APP_API_URL}/wp-json/wp/v2/posts`;
     const token=localStorage.getItem('wordpress-examination')
     const payload = { title, content,status:'publish'};
   
