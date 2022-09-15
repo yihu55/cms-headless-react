@@ -23,8 +23,6 @@ $dotenv->load();
 ### get rid of import logo in App.js
 
 
-
-
 # Generate  SSH key
 ### open your terminal and enter the following command to generate a key:
 ```
