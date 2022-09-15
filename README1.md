@@ -83,12 +83,14 @@ Unable to negotiate with 203.0.113.123 port 2222: no matching host key type foun
 ### install jwt plugin in wordpress
 ### adding in .htaccess folllowing
 ```
+RewirteEngine On
 RewriteCond %{HTTP:Authorization} ^(.*)
 RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
 ```
 
-### define secret key in wp-config.php
+### define secret key in wp-config.php 
+
 ```
 define('JWT_AUTH_SECRET_KEY', 'your-top-secret-key');
 ```
@@ -97,3 +99,10 @@ define('JWT_AUTH_SECRET_KEY', 'your-top-secret-key');
 ```
 define('JWT_AUTH_CORS_ENABLE', true);
 ```
+
+### there two lines of config should be above for configuration working properly
+```
+require_once ABSPATH . 'wp-settings.php';
+```
+
+todo .htaccess

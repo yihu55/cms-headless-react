@@ -17,7 +17,7 @@ function NavbarComponent() {
       <Nav className="me-auto">
         <Nav.Link href="/">Home</Nav.Link>
         <Nav.Link href="/categories">Categories</Nav.Link>
-        {!token ? <Nav.Link href="/login">Log in</Nav.Link> : <Button onClick={logout}>log out</Button>}
+        {token===undefined ? <Nav.Link href="/login">Log in</Nav.Link> : <Button onClick={logout}>log out</Button>}
       </Nav>
     </Container>
   </Navbar></>

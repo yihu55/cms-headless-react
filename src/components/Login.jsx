@@ -9,7 +9,10 @@ export default function Login() {
   const login=async(e)=>{
     e.preventDefault()
     const url=`${process.env.REACT_APP_API_URL}/wp-json/jwt-auth/v1/token`
-    const payload={username,password}
+    const payload={
+      username:process.env.REACT_APP_USERNAME,
+      password:process.env.REACT_APP_PASSWORD
+    }
     await fetch(url,{
         method:'POST',
         headers:{
