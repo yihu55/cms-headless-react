@@ -23,5 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 .env
-.README1.md
-.README.md
+README1.md
+README.md
